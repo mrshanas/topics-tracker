@@ -1,0 +1,17 @@
+{% extends 'topics/base.html' %}
+{% block title %}{{ topic.title }}{% endblock title %}{{ topic.title }}
+{% block content %}
+<div>
+    <a href="{% url 'index' %}">Learning Log</a>
+    <a href="{% url 'topics:topics_list' %}">Topics</a>
+</div>
+<h1>{{ topic.title}}</h1>
+<ul>
+    {% for entry in entries %}
+    <li>{{ entry.date_added }} <br />
+        {{ entry.body|linebreaks }}
+    </li>
+    {% empty %}
+    <li>No entry yet</li>
+    {% endfor %}
+    {% endblock content %}

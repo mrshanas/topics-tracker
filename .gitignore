@@ -1,0 +1,17 @@
+ll_env/
+db.sqlite3
+.vscode
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# enviroment variables
+.env
+.idea
