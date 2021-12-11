@@ -6,12 +6,17 @@
     <a href="{% url 'topics:topics_list' %}">Topics</a>
 </div>
 <h1>{{ topic.title}}</h1>
+<a href="{% url 'topics:new_entry' topic.id%}">Add Entry</a>
 <ul>
     {% for entry in entries %}
     <li>{{ entry.date_added }} <br />
         {{ entry.body|linebreaks }}
     </li>
+    <a href="{% url 'topics:edit_entry' entry.id %}">Edit Entry</a>
+
     {% empty %}
     <li>No entry yet</li>
-    {% endfor %}
-    {% endblock content %}
+</ul>
+{% endfor %}
+
+{% endblock content %}

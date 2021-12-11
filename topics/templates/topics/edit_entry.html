@@ -1,0 +1,13 @@
+{% extends 'topics/base.html' %}
+{% block title %}Edit | {{ topic.title }}{% endblock title %}
+{% block content %}
+<h1>
+    <a href="{% url 'topics:topic' topic.id %}">{{ topic.title}}</a>
+</h1>
+<p>Edit Entry</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Edit Entry" />
+</form>
+{% endblock content %}

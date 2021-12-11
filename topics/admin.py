@@ -5,7 +5,7 @@ from .models import Topic,Entry
 @admin.register(Topic)
 class TopicManager(admin.ModelAdmin):
     
-    list_display = ('title','body','date_added')
+    list_display = ('title','date_added',)
 
 @admin.register(Entry)
 class EntryManager(admin.ModelAdmin):
