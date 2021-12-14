@@ -15,3 +15,6 @@ __pycache__/
 # enviroment variables
 .env
 .idea
+
+#workspace
+learning_log.code-workspace

@@ -11,7 +11,8 @@ app_name = 'topics'
 urlpatterns = [
     # Home page
     # url(r'^$',views.index,name='index'),
-    path('',views.topics_list,name='topics_list'),
+    path('',views.home_page,name='home_page'),
+    path('topics',views.topics_list,name='topics_list'),
     path('<int:topic_id>/',views.topic,name='topic'),
     # for adding a new topic
     path('new_topic/',views.new_topic,name='new_topic'),

@@ -1,0 +1,10 @@
+{% extends 'topics/base.html' %} {% block title %}Log In{% endblock title %}
+{%block content %} {% if form.errors %}
+<p>Your username and password didnt match</p>
+{% endif %}
+<form action="{% url 'users:login' %}" method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Log In" />
+  <input type="hidden" name="next" value="{% url 'topics:topics_list' %}" />
+</form>
+{% endblock content %}

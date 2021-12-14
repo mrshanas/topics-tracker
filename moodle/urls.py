@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.shortcuts import render
+# from django.contrib.auth.decorators import login_required
 
-def index(request):
-    """Displaying the home page"""
-    return render(request,'home/index.html')
+
+# def index(request):
+#     """Displaying the home page"""
+#     return render(request,'home/index.html')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index,name='index'),
-    path('topics/',include('topics.urls',namespace='topics'))
+    # path('',index,name='index'),
+    path('topics/',include('topics.urls',namespace='topics')),
+    path('users/',include('users.urls',namespace='users')),
 ]

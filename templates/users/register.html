@@ -1,0 +1,6 @@
+{% extends 'topics/base.html' %} {% block content %}
+<form action="{% url 'users:register' %}" method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Register" />
+</form>
+{% endblock content %}

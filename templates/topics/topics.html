@@ -1,0 +1,13 @@
+{% extends 'topics/base.html' %} {% block title %}Learning Log{% endblock%}
+{%block content %}
+<a href="{% url 'topics:home_page' %}">Learning Log</a>
+<h1>Topics</h1>
+<ul>
+  {% for topic in topics %}
+  <li><a href="{% url 'topics:topic' topic.id %}">{{ topic.title}}</a></li>
+  {% empty %}
+  <li>No topics added</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'topics:new_topic' %}">Add Topic</a>
+{% endblock content %}
