@@ -13,13 +13,7 @@ def logout_view(request):
 def register(request):
     """Register a new user"""
 
-    # 1st user
-    # username:nassibu
-    # password:kishamba1
 
-    # 2nd user
-    # username:teua
-    # password:kalembo1
 
     if request.method != 'POST':
         form = UserCreationForm()

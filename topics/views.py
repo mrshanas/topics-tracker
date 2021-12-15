@@ -8,7 +8,7 @@ from django.http import Http404
 # from django.shortcuts import get_object_or_404
 
 # Create your views here.
-# the password is 'moodle'
+
 
 def home_page(request):
     return render(request,'topics/index.html')
