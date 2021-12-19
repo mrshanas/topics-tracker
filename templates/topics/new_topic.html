@@ -1,8 +1,10 @@
 {% extends 'topics/base.html' %}
+{% load bootstrap5 %}
 {% block content %}
-<form method="post" {% url 'topics:new_topic' %}>
-    {{ new_topic.as_p }}
+<form method="post" {% url 'topics:new_topic' %} class="mt-3">
+    {% bootstrap_form new_topic %}
     {% csrf_token %}
-    <button type="submit">Add</button>
+    {% bootstrap_button "ADD" button_type="submit" button_class="btn-primary"%}
+    <!-- <button type="submit">Add</button> -->
 </form>
 {% endblock content %}

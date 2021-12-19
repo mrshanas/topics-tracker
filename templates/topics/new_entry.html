@@ -1,8 +1,13 @@
-{% extends 'topics/base.html' %} {% block title %}Add | {{ topic.title }}
-{%endblock title %} {% block content %}
-<h1>{{ topic.title }}</h1>
+{% extends 'topics/base.html' %}
+{% load bootstrap5 %}
+{% block title %}Add | {{ topic.title }}{%endblock title %}
+{% block content %}
+<h1>Add new entry to {{ topic.title }}</h1>
+<hr>
 <form method="post" action="{% url 'topics:new_entry' topic.id %}">
-  {{ entry_form.as_p }} {% csrf_token %}
-  <input type="submit" value="Add Entry" />
+  {% csrf_token %}
+  {% bootstrap_form entry_form %}
+  {% bootstrap_button "Add Entry" button_type="submit" button_class="btn-primary" %}
+  <!-- <input type="submit" value="Add Entry" /> -->
 </form>
 {% endblock content %}

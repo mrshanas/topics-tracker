@@ -1,16 +1,67 @@
+{# load the tag libary #}
+{% load bootstrap5 %}
+
+{# load css and js#}
+{%bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+ {%bootstrap_messages %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock title %}</title>
   </head>
-
   <body>
-    {% if user.is_authenticated %}
-    <p>Hello {{ user.username }}</p>
-    <a href="{% url 'users:logout_view' %}">Log Out</a>
-    {% else %}
-    <a href="{% url 'users:login'%}">Log In</a>
-    <a href="{% url 'users:register'%}">Register</a>
-    {% endif %} {% block content %}{% endblock content %}
+
+
+      <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+      <!-- <p>Hello {{ user.username }}</p> -->
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="{% url 'topics:home_page' %}" class="navbar-brand">Learning Log</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav ms-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item p-3">
+              <a href="{% url 'topics:topics_list' %}" class="navbar-brand">Topics</a>
+            </li>
+            <!-- <li class="nav-item p-3">
+              <a class="nav-link" href="#">Hello {{ user.username }}</a>
+            </li> -->
+            <li class="nav-item p-3">
+              <a href="{% url 'users:logout_view' %}" class="navbar-brand">Log Out</a>
+            </li>
+            {% else %}
+            <li class="nav-item p-3">
+                <a href="{% url 'users:login'%}" class="navbar-brand">Log In</a>
+            </li>
+            <li class="nav-item p-3">
+              <a href="{% url 'users:register'%}" class="navbar-brand">Register</a>
+            </li>
+              {% endif %}
+          </ul>
+        </div>
+      </nav>
+
+    <div class="container">
+      {% block content %}{% endblock content %}
+    </div>
+    <footer class="sticky-bottom">
+      <p class="text-center">&copy; Copyright Shanas <span id="date"></span></p>
+    </footer>
+
+    <script>
+      const date = new Date();
+      const year = date.getFullYear();
+      document.getElementById('date').innerHTML = year;
+      // console.log(year, date);
+    </script>
   </body>
 </html>

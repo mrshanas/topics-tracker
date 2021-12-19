@@ -1,13 +1,16 @@
 {% extends 'topics/base.html' %}
+{% load bootstrap5 %}
 {% block title %}Edit | {{ topic.title }}{% endblock title %}
 {% block content %}
-<h1>
-    <a href="{% url 'topics:topic' topic.id %}">{{ topic.title}}</a>
+<h1 class="text-center">
+    <a href="{% url 'topics:topic' topic.id %}" class="text-dark">{{ topic.title}}</a>
 </h1>
 <p>Edit Entry</p>
+<hr>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Edit Entry" />
+    {% bootstrap_form form %}
+    {% bootstrap_button "Edit Entry" button_type="submit" button_class="btn-primary"%}
+    <!-- <input type="submit" value="Edit Entry" /> -->
 </form>
 {% endblock content %}
