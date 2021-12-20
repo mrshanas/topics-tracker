@@ -1,5 +1,6 @@
 ll_env/
 db.sqlite3
+*.sqlite3
 .vscode
 ### Django ###
 *.log

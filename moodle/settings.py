@@ -11,28 +11,29 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import environ
+# import environ
 import os
 
-env = environ.Env(
-    # set casting default value
-    DEBUG=(bool,False)
-)
+# env = environ.Env(
+#     # set casting default value
+#     DEBUG=(bool,False)
+# )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Take environment variables from .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-y-*x%92-8l%vh#=0*v!84km)j*yb13jkqu-+q+l&)#b(g68uzb'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
-
+# DEBUG = env('DEBUG')
+DEBUG = True
 ALLOWED_HOSTS = []
 
 
@@ -95,6 +96,26 @@ DATABASES = {
     }
 }
 
+# Heroku settings
+
+if os.getcwd() == 'app/':
+    import dj_database_url
+    DATABASES = {
+        'default' : dj_database_url.config(default='postgres://localhost')
+    }
+
+    # to support https request from heroku
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https',)
+
+    # allowed all host headers
+    ALLOWED_HOSTS = ['*']
+
+    # static asset configurations
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR,'static'),
+    )
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

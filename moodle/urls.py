@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.shortcuts import render
+from topics import views
 # from django.contrib.auth.decorators import login_required
 
 
@@ -25,7 +26,7 @@ from django.shortcuts import render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('',index,name='index'),
+    path('',views.home_page,name='home_page'),
     path('topics/',include('topics.urls',namespace='topics')),
     path('users/',include('users.urls',namespace='users')),
 ]

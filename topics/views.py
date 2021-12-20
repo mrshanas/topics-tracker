@@ -97,6 +97,7 @@ def edit_entry(request, entry_id):
 
         if form.is_valid():
             form.save()
+            return redirect('topics:topics_list')
 
     context = {'entry': entry, 'form': form, 'topic': topic}
     return render(request, 'topics/edit_entry.html', context)
