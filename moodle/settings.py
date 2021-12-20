@@ -36,7 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y-*x%92-8l%vh#=0*v!84km)j*yb13jkqu-+q+l&)#b(g68uzb'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = env('DEBUG')
-DEBUG = True
+# DEBUG = True
 ALLOWED_HOSTS = []
 
 
@@ -122,6 +122,8 @@ if os.getcwd() == 'app/':
         os.path.join(BASE_DIR,'static'),
     )
 
+else:
+    DEBUG = True
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 

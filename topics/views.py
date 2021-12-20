@@ -34,7 +34,8 @@ def topic(request, topic_id):
 
     if topic.owner != request.user:
         raise Http404
-
+    for i in entries:
+        print(i.date_added)
     return render(request, 'topics/topic.html', {'topic': topic, 'entries': entries})
 
 
