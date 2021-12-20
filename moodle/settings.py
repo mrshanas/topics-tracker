@@ -108,7 +108,9 @@ if os.getcwd() == 'app/':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https',)
 
     # allowed all host headers
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['topics-tracker.herokuapp.com']
+
+    DEBUG = False
 
     # static asset configurations
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
