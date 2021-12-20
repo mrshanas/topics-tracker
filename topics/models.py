@@ -23,7 +23,7 @@ class Entry(models.Model):
 
     body = models.TextField()
     
-    date_added = models.DateTimeField(default=datetime.now())
+    date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.body[:50]}..."
