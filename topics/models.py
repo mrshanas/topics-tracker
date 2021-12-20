@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 # from django.utils import timezone
-
+from datetime import datetime
 # Create your models here.
 class Topic(models.Model):
     """A class to create Topics"""
@@ -23,7 +23,7 @@ class Entry(models.Model):
 
     body = models.TextField()
     
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateTimeField(default=datetime.now())
 
     def __str__(self):
         return f"{self.body[:50]}..."
