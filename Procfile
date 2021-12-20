@@ -1,1 +1,1 @@
-web: gunicorn topics.wsgi --log-file -
+web: gunicorn moodle.wsgi --log-file -
