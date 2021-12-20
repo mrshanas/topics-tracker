@@ -141,7 +141,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Dar_Es_Salaam'
+TIME_ZONE = 'UTC+0300'
 
 USE_I18N = True
 
