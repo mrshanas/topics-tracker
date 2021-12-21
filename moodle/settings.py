@@ -11,14 +11,14 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-# import environ
+import environ
 import os
 import django_heroku
 
-# env = environ.Env(
-#     # set casting default value
-#     DEBUG=(bool,False)
-# )
+env = environ.Env(
+    # set casting default value
+    DEBUG=(bool,False)
+)
 
 
 
@@ -26,14 +26,13 @@ import django_heroku
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Take environment variables from .env file
-# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = env('SECRET_KEY')
-SECRET_KEY = 'django-insecure-y-*x%92-8l%vh#=0*v!84km)j*yb13jkqu-+q+l&)#b(g68uzb'
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = env('DEBUG')
 # DEBUG = True
