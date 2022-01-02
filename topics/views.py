@@ -75,7 +75,7 @@ def new_entry(request, topic_id):
             form = entry_form.save(commit=False)
             form.topic = topic
             form.save()
-            return redirect('topics:topics_list')
+            return redirect('topics:topic',topic_id=topic.id)
 
     return render(request, 'topics/new_entry.html', {'entry_form': entry_form, 'topic': topic})
 
@@ -98,7 +98,7 @@ def edit_entry(request, entry_id):
 
         if form.is_valid():
             form.save()
-            return redirect('topics:topics_list')
+            return redirect('topics:topic',topic_id=topic.id)
 
     context = {'entry': entry, 'form': form, 'topic': topic}
     return render(request, 'topics/edit_entry.html', context)
@@ -108,10 +108,10 @@ def delete_entry(request,entry_id):
     """Delete the selected entry"""
     entry = Entry.objects.get(id=entry_id)
 
-    s_topic = entry.topic
+    topic = entry.topic
 
-    if s_topic.owner != request.user:
+    if topic.owner != request.user:
         raise Http404
 
     entry.delete()
-    return redirect('topics:topic',topic_id=s_topic.id)
+    return redirect('topics:topic',topic_id=topic.id)
