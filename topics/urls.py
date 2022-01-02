@@ -21,5 +21,7 @@ urlpatterns = [
     # editing a new entry
     path('<int:entry_id>/edit_entry',views.edit_entry,name='edit_entry'),
     # deleting an entry
-    path('<int:entry_id>/delete_entry',views.delete_entry,name='delete_entry')
+    path('<int:entry_id>/delete_entry',views.delete_entry,name='delete_entry'),
+    # deleting a topic
+    path('<int:topic_id>/delete_topic',views.delete_topic,name='delete_topic')
 ]

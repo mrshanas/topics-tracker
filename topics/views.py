@@ -38,6 +38,17 @@ def topic(request, topic_id):
         print(i.date_added)
     return render(request, 'topics/topic.html', {'topic': topic, 'entries': entries})
 
+@login_required
+def delete_topic(request,topic_id):
+    """Delete a specific topic"""
+    topic = Topic.objects.get(id=topic_id)
+
+    if topic.owner != request.user:
+        raise Http404
+
+    topic.delete()
+
+    return redirect('topics:topics_list')
 
 @login_required
 def new_topic(request):

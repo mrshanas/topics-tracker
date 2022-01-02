@@ -1,21 +1,24 @@
 {% extends 'topics/base.html' %}
 {% block title %}Learning Log{% endblock%}
 {%block content %}
-<div class="row">
-  <h1 class="text-center">Hello {{ user.username }}, These are your Topics</h1>
-  <hr>
-
-    {% for topic in topics %}
-    <div class="col-12 list-group">
-      <a href="{% url 'topics:topic' topic.id %}" class="list-group-item list-group-item-action">{{ topic.title}}</a>
-    </div>
-
-    {% empty %}
-    <p class="h1 text-center">No topics added</p>
-    {% endfor %}
-
-  <a href="{% url 'topics:new_topic' %}" class="btn btn-secondary pt-2 mt-2">Add Topic</a>
-
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">Hello {{ user.username }}, These are your Topics</h1>
+    <hr>
+  
+      {% for topic in topics %}
+      <div class="col-12 list-group">
+        <a href="{% url 'topics:topic' topic.id %}" class="list-group-item list-group-item-action">{{ topic.title}}</a>
+      </div>
+  
+      {% empty %}
+      <p class="h1 text-center">No topics added</p>
+      {% endfor %}
+  
+    <a href="{% url 'topics:new_topic' %}" class="btn btn-secondary pt-2 mt-2">Add Topic</a>
+  
+  </div>
 </div>
+
 
 {% endblock content %}
