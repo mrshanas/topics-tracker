@@ -102,3 +102,16 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'form': form, 'topic': topic}
     return render(request, 'topics/edit_entry.html', context)
+
+@login_required
+def delete_entry(request,entry_id):
+    """Delete the selected entry"""
+    entry = Entry.objects.get(id=entry_id)
+
+    s_topic = entry.topic
+
+    if s_topic.owner != request.user:
+        raise Http404
+
+    entry.delete()
+    return redirect('topics:topic',topic_id=s_topic.id)

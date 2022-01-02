@@ -19,5 +19,7 @@ urlpatterns = [
     # adding a new entry
     path('<int:topic_id>/new_entry',views.new_entry,name='new_entry'),
     # editing a new entry
-    path('<int:entry_id>/edit_entry',views.edit_entry,name='edit_entry')
+    path('<int:entry_id>/edit_entry',views.edit_entry,name='edit_entry'),
+    # deleting an entry
+    path('<int:entry_id>/delete_entry',views.delete_entry,name='delete_entry')
 ]

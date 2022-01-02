@@ -18,6 +18,8 @@
       <a href="{% url 'topics:edit_entry' entry.id %}" class="btn btn-primary"
         >Edit Entry</a
       >
+{% comment  %}{% url 'topics:delete_entry' %}{% endcomment %}
+      <a href="{% url 'topics:delete_entry' entry.id %}" class="btn btn-primary ms-5">Delete Entry</a>
     </div>
   </div>
   {% empty %}
