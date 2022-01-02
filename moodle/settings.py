@@ -35,7 +35,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = env('DEBUG')
-# DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = []
 
 
@@ -121,8 +121,7 @@ if os.getcwd() == 'app/':
         os.path.join(BASE_DIR,'static'),
     )
 
-else:
-    DEBUG = True
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
